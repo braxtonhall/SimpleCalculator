@@ -1,0 +1,6 @@
+{
+  "title": "Adding an empty array",
+  "input": [],
+  "errorExpected": true,
+  "with": "TooSimple"
+}
