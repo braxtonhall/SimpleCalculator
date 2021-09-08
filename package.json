@@ -1,0 +1,9 @@
+{
+  "name": "SimpleCalculator",
+  "version": "1.0.0",
+  "description": "A calculator that can only add",
+  "main": "index.js",
+  "repository": "git@github.com:kekerr/SimpleCalculator.git",
+  "author": "Katharine <kekerr@gmail.com>",
+  "license": "MIT"
+}
