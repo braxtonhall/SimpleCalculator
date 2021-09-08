@@ -1,0 +1,6 @@
+{
+  "title": "Adding a number above the max size",
+  "input": [1001,1],
+  "errorExpected": true,
+  "with": "TooLarge"
+}

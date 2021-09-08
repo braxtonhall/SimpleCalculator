@@ -5,12 +5,30 @@ export class TooSimple extends Error {
     }
 }
 
+export class TooLarge extends Error {
+    constructor(...args: any[]) {
+        super(...args);
+        Error.captureStackTrace(this, TooLarge);
+    }
+}
+
+const MAX_NUMBER: number = 1000;
+
 export default class SimpleCalculator {
     add(nums: number[]) : Promise<number> {
-        if (nums.length < 1) {
-            return Promise.reject(new TooSimple());
-        }
+        return new Promise<number>((resolve, reject) =>
+        {
+            if (nums.length < 1) {
+                reject(new TooSimple());
+            }
 
-        return Promise.resolve(nums.reduce((prevVal, currentVal) => prevVal + currentVal));
+            nums.forEach(num => {
+                if (num > MAX_NUMBER) {
+                    reject(new TooLarge());
+                }
+            });
+
+            resolve(nums.reduce((prevVal, currentVal) => prevVal + currentVal));
+        });
     }
 }
