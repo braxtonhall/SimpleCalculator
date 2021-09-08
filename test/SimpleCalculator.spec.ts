@@ -43,17 +43,10 @@ describe("SimpleCalculator", () => {
             },
             "./test/resources",
             {
-                assertOnError: (expected: Error, actual: any) => {
-                    // if (expected === "TooSimple") {
-                    console.log(expected);
-                    console.log(typeof expected);
-                    console.log(actual)
-                    console.log(typeof actual);
-                        expect(actual).to.deep.equal(expected);
-                    // } else {
-                    //     throw new Error("Oh Uh! Unexpected error in tests")
-                    // }
-
+                errorValidator: (error): error is TooSimple =>
+                    error === "TooSimple",
+                assertOnError(expected, actual) {
+                    expect(actual).to.be.instanceof(TooSimple);
                 }
             }
         )
